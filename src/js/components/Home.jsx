@@ -6,15 +6,17 @@ import React, {useState} from "react";
 //create your first component
 const Home = () => {
 	const [listArray, setListArray]=useState(["Grocery shopping", "Do Laundry", "Meal Prep","Finish Coding Projects"])
-	const result = listArray.filter((item)=> item !="Meal Prep")
-	console.log(result);
+	const deleteItem = (itemToDelete) => {
+		setListArraylistArray.filter((item)=> item !==itemToDelete)}
+	
 	return (
 		<div className="text-center">
 			<h1>To-Do List</h1>
 			<ul>
             {listArray.map(
 				(item)=>{
-					return (<div>
+					return (
+					<div className= "container border p-2 fs-3 text fw-light">
 						<li>{item}</li>
 					</div>)
 				})
