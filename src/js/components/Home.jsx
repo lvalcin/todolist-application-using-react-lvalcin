@@ -5,7 +5,8 @@ import React, {useState} from "react";
 
 //create your first component
 const Home = () => {
-	const [listArray, setListArray]=useState(["Grocery shopping", "Do Laundry", "Meal Prep","Finish Coding Projects"])
+	const [listArray, setListArray]=useState(["Grocery shopping", "Do Laundry", "Meal Prep","Finish Coding Projects"]);
+	const [inputValue, setInputValue] = useState("");
 	const deleteItem = (itemToDelete) => {
 		setListArraylistArray.filter((item)=> item !==itemToDelete)}
 	
@@ -24,19 +25,25 @@ const Home = () => {
 			</ul>
 			<input 
 				type="text"
-				onKeyDown={
-				(e)=>{
-					if(e.key==='Enter'){
-						const newListArray = [...listArray,e.target.value]
-						setListArray(newListArray)
-					}		
-				}
-				}
-			/>
-			<button>Click me</button>
+				value={inputValue}
+				onChange={(e) => setInputValue(e.target.value)}/>
+			<button onClick={()=>{
+          		if (inputValue.trim() !== "") {
+            	setListArray((prevList) => [...prevList, inputValue]);
+            	setInputValue("");}
+			}}>
+			Add To List
+			</button>
 
 		</div>
 	);
 };
-
+// onKeyDown={
+// 	(e)=>{
+// 		if(e.key==='Enter'){
+// 			const newListArray = [...listArray,e.target.value]
+// 			setListArray(newListArray)
+// 		}		
+// 	}
+// 	}
 export default Home;
