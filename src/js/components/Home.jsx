@@ -8,7 +8,8 @@ const Home = () => {
 	const [listArray, setListArray]=useState(["Grocery shopping", "Do Laundry", "Meal Prep","Finish Coding Projects"]);
 	const [inputValue, setInputValue] = useState("");
 	const deleteItem = (itemToDelete) => {
-		setListArraylistArray.filter((item)=> item !==itemToDelete)}
+		const result = setListArraylistArray.filter((item)=> item !==itemToDelete)}
+			setListArray(result)
 	
 	return (
 		<div className="text-center">
